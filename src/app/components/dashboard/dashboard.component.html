@@ -1,0 +1,125 @@
+<div class="flex h-[900px]">
+  <div class="hidden w-64 bg-indigo-500 md:block">
+    <div class="p-6">
+      <h2 class="text-white text-3xl font-bold">FlightsNG</h2>
+    </div>
+    <nav class="flex-grow">
+      <ul class="p-6">
+        <li>dashboard</li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="flex-grow p-6">
+    <h2 class="text-2xl font-bold mb-4">Welcome to your dashboard</h2>
+    <form class="mx-6">
+      <div
+        class="mt-4 flex flex-col sm:flex-row sm:justify-between sm:items-center"
+      >
+        <div class="flex items-center gap-2 my-1">
+          <p>Flights On:</p>
+          <input
+            name="date"
+            required
+            type="date"
+            class="w-40 border border-black rounded-md py-1"
+            [(ngModel)]="date"
+            (ngModelChange)="getAllFlights()"
+          />
+        </div>
+        <div class="flex items-center gap-2 my-1">
+          <p>From:</p>
+          <input
+            name="from"
+            required
+            [(ngModel)]="from"
+            class="w-40 border border-black rounded-md py-1"
+            type="time"
+            (change)="onInputChange(from)"
+            (ngModelChange)="getAllFlights()"
+          />
+        </div>
+        <div class="flex items-center gap-2 my-1">
+          <p>To:</p>
+          <input
+            name="to"
+            required
+            class="w-40 border border-black rounded-md py-1"
+            type="time"
+            [(ngModel)]="to"
+            (change)="onInputChange(to)"
+            (ngModelChange)="getAllFlights()"
+          />
+        </div>
+      </div>
+    </form>
+
+    <div>
+      <h3 class="mt-5 text-slate-500 font-bold text-xl"></h3>
+
+      <ul
+        class="flex flex-col gap-5 mx-auto mt-12 w-screen sm:w-full h-full rounded-md"
+      >
+        <li
+          *ngFor="let flightDetails of ultimateArr"
+          class="bg-indigo-500 text-white py-2 font-medium text-lg rounded-md"
+        >
+          {{ flightDetails.airport }} |
+          {{ flightDetails.numberOfArrivingFlights }} |
+          {{ flightDetails.numberOfDepartingFlights }}
+        </li>
+      </ul>
+
+      <div>
+        <div
+          class="flex items-center justify-center gap-12 sm:gap-24 mx-auto mt-12 w-screen sm:w-full h-full rounded-md"
+        >
+          <button
+            [disabled]="currentPage === 1"
+            (click)="goToPrevious()"
+            [class.text-slate-500.hover\:none.cursor-not-allowed]="
+              currentPage === 1
+            "
+            [class.text-indigo-500.hover\:text-indigo-300.cursor-pointer]="
+              currentPage !== 1
+            "
+            class="flex justify-center items-center gap-2"
+          >
+            <i class="ai ai-outline-arrow-left"></i>Previous
+          </button>
+          <button
+            [disabled]="currentPage === totalPages"
+            (click)="goToNext()"
+            [class.text-slate-500.hover\:none.cursor-not-allowed]="
+              currentPage === totalPages
+            "
+            [class.text-indigo-500.hover\:text-indigo-300.cursor-pointer]="
+              currentPage !== totalPages
+            "
+            class="flex justify-center items-center gap-2"
+          >
+            Next <i class="ai ai-outline-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- <div>  
+        <h3 class="mt-5 text-slate-500 font-bold text-xl">
+          Here is a list of all flights arriving and departing from all
+          airports available at the time interval specified. Please wait
+          patiently while the data loads...
+        </h3>
+          <ul class="flex flex-col gap-5 mx-auto mt-12 w-screen sm:w-[500px] h-full rounded-md">
+              <li
+               *ngFor="let flightDetails of ultimateArr"
+                class="bg-indigo-500 text-white py-2 font-medium text-lg rounded-md "
+              >
+               {{flightDetails.airport}} | {{flightDetails.numberOfArrivingFlights }} | {{flightDetails.numberOfDepartingFlights}}
+              </li>
+            
+          </ul>
+  </div> -->

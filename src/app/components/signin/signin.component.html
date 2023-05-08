@@ -1,0 +1,18 @@
+<div class='flex justify-center items-center bg-gradient-to-b from-fuchsia-500 to-indigo-600 h-screen'>
+    <div class='w-screen mx-6 sm:mx-0 sm:w-[400px] h-96 rounded-md bg-white p-8 mt-12'>
+        <h2 class='text-xl text-slate-500 font-bold pb-8'>Sign In</h2>
+        <form (ngSubmit)="onSubmit()" class='flex flex-col'>
+            <div class='mb-8'>
+            <p class='text-red-500 text-start font-medium pb-1'>{{emailError}}</p>
+            <input type='email' name="email" [(ngModel)]="email" class='w-full text-white py-1 px-2 rounded-md outline-none bg-slate-500' placeholder='Email' required/>
+            </div>
+            <div class='mb-8'>
+            <p class='text-red-500 font-medium -mt-4 text-start pb-1'>{{passwordError}}</p>
+            <input type='password' name="password" [(ngModel)]="password" class='w-full text-white py-1 px-2 rounded-md outline-none bg-slate-500' placeholder='Password' required/>
+            </div>
+            <input type='password' name="confirmPassword" [(ngModel)]="confirmPassword" class='w-full text-white mb-8 py-1 px-2 rounded-md outline-none bg-slate-500' placeholder='Please confirm passsword' required/>
+            <input type='submit' class='cursor-pointer mb-8 w-full py-1 px-2 rounded-md text-white bg-fuchsia-500 hover:bg-fuchsia-600 font-medium text-lg' value='Sign In'/>
+        </form>
+    </div>
+    
+    </div>

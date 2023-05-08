@@ -1,0 +1,13 @@
+<div class='flex justify-center items-center bg-gradient-to-b from-fuchsia-500 to-indigo-600 h-screen'>
+    <div class='w-screen mx-6 sm:mx-0 sm:w-[400px] h-80 rounded-md bg-white p-8 mt-12'>
+        <h2 class='text-xl text-slate-500 font-bold pb-8'>Login</h2>
+        <p class='text-red-500'>{{error}}</p>
+        <form (ngSubmit)="onSubmit()" class='flex flex-col gap-8'>
+            <input name="email" id="email" [(ngModel)]="email" type='email' class='w-full text-white py-1 px-2 rounded-md outline-none bg-slate-500' placeholder='Email' required/>
+            <input name="password" id="password" [(ngModel)]="password" type='password' class='w-full text-white py-1 px-2 rounded-md outline-none bg-slate-500' placeholder='Password' required/>
+            <input type='submit' class='cursor-pointer hover:bg-fuchsia-600 w-full py-1 px-2 rounded-md text-white bg-fuchsia-500 font-medium text-lg' value='Log in'/>
+        </form>
+        <p class='text-slate-500 text-start pt-3'>New Here? <a class='text-fuchsia-500 hover:text-fuchsia-600 underline' routerLink="signin">Sign In</a></p>
+    </div>
+    
+    </div>
