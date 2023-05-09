@@ -1,5 +1,7 @@
 # HamoyeAssessmentAngular
 
+You can find the link to this project on netlfiy here: https://hamoyeassessmentangular.netlify.app/
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.2.
 
 ## Development server
