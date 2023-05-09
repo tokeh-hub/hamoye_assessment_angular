@@ -5,7 +5,7 @@
     </div>
     <nav class="flex-grow">
       <ul class="p-6">
-        <li>dashboard</li>
+        <li class="text-white capitalize underline font-medium">dashboard</li>
       </ul>
     </nav>
   </div>
@@ -54,9 +54,11 @@
       </div>
     </form>
 
-    <div>
-      <h3 class="mt-5 text-slate-500 font-bold text-xl"></h3>
+    <div *ngIf="isLoading" class="flex justify-center items-center mt-24 font-bold text-3xl">Loading...</div>
+    <div *ngIf="error !== ''" class="text-red-500 font-bold">{{error}}</div>
 
+    <div *ngIf="error === '' || !isLoading">
+      <h3 class="mt-5 text-slate-500 font-bold text-xl"></h3>
       <ul
         class="flex flex-col gap-5 mx-auto mt-12 w-screen sm:w-full h-full rounded-md"
       >
@@ -65,12 +67,12 @@
           class="bg-indigo-500 text-white py-2 font-medium text-lg rounded-md"
         >
           {{ flightDetails.airport }} |
+          {{time}} |
           {{ flightDetails.numberOfArrivingFlights }} |
           {{ flightDetails.numberOfDepartingFlights }}
         </li>
       </ul>
-
-      <div>
+      <div *ngIf="error === ''">
         <div
           class="flex items-center justify-center gap-12 sm:gap-24 mx-auto mt-12 w-screen sm:w-full h-full rounded-md"
         >
